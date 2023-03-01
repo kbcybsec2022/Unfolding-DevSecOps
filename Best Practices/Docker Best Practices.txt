@@ -1,0 +1,26 @@
+Identifying the right container
+We can use the following techniques to identify the right container for us to play with.
+
+-Identify a container using its creation time.
+
+-Identify a container using container id.
+$ docker run -d alpine
+
+-Identify a container by container name.
+$ docker run --name myalpine alpine
+
+
+Analyzing a container. 
+-Block the container from exiting by using interactive commands.
+$ docker run -it alpine /bin/sh
+-i stands for interactive mode
+-t stands for tty (terminal)
+
+-Block the container from exiting by using an infinite loop etc.,
+$ docker run -d -it alpine sh -c "while true; do sleep 2; done"
+
+-Pause the container temporarily.
+$ docker run --name your-alpine -it alpine sh -c "while true; do sleep 3; date; done"
+$ docker pause your-alpine
+$ docker unpause your-alpine
+$ docker stop your-alpine
